@@ -1,6 +1,6 @@
 #!/bin/sh
 
 echo "Applying database migrations..."
-python manage.py migrate
+python src/manage.py migrate
 
 exec "$@"

@@ -19,6 +19,9 @@ services:
     container_name: celery_worker 
     build:
       context: .
+    command: celery --app=core.celery worker --loglevel=${CELERY_LOG_LEVEL:-info}
+    environment: 
+      - PYTHONPATH=/app/src
     volumes:
       - ./src:/app/src
     env_file: 

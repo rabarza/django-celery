@@ -5,3 +5,11 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
 
 app = Celery("celery app")
 app.config_from_object("django.conf:settings", namespace="CELERY")
+
+
+@app.task
+def add(x, y):
+    return x + y
+
+
+app.autodiscover_tasks()

@@ -1,5 +1,5 @@
 services:
-  redis:
+  broker:
     container_name: redis_broker
     image: redis:latest
   web:
@@ -14,4 +14,14 @@ services:
     env_file:
       - .env
     depends_on:
-      - redis
+      - broker
+  worker:
+    container_name: celery_worker
+    build:
+      context: .
+    volumes:
+      - ./src:/app/src
+    env_file: 
+      - .env
+    depends_on:
+      - broker

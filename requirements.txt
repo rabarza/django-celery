@@ -3,3 +3,4 @@ Django==5.2.13
 django-environ==0.13.0
 sqlparse==0.5.5
 tzdata==2026.1
+celery==5.3.0

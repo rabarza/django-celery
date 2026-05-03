@@ -21,6 +21,8 @@ env = environ.Env(
     DEBUG=(bool, False),
     ALLOWED_HOSTS=(list, []),
     DATABASE_URL=(str, f"sqlite:///{BASE_DIR / 'db.sqlite3'}"),
+    CELERY_BROKER_URL=(str, "redis://broker:6379/0"),
+    CELERY_RESULT_BACKEND=(str, "redis://broker:6379/1"),
 )
 
 env_file = ROOT_DIR / ".env"

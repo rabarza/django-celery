@@ -16,7 +16,7 @@ services:
     depends_on:
       - broker
   worker:
-    container_name: celery_worker
+    container_name: celery_worker 
     build:
       context: .
     volumes:

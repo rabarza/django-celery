@@ -1,9 +1,9 @@
+name: django-celery
+
 services:
   broker:
-    container_name: redis_broker
     image: redis:latest
   web:
-    container_name: django_web
     build:
       context: .
     command: python src/manage.py runserver 0.0.0.0:8000
@@ -16,7 +16,6 @@ services:
     depends_on:
       - broker
   worker:
-    container_name: celery_worker 
     build:
       context: .
     command: celery --app=core.celery worker --loglevel=${CELERY_LOG_LEVEL:-info}
